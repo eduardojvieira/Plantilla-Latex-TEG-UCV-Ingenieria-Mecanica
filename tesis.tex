@@ -1,0 +1,171 @@
+\documentclass[oneside, 12pt, letterpaper]{scrreprt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Importacion de paquetes y configuraciones %%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Codificación utf8 para colocar símbolos y acentos directamente
+\usepackage[utf8]{inputenc}
+
+% Fuente TImes New Roman
+\usepackage{times}
+\addtokomafont{disposition}{\rmfamily}
+
+% Bibliografia biblio.bib
+\usepackage[backend=bibtex, citestyle=authoryear]{biblatex}
+\addbibresource{biblio.bib}
+
+% Paquete para el interlineado
+\usepackage{setspace}
+
+% Paquete para los margenes
+\usepackage[letterpaper]{geometry}
+
+% Márgenes del documento
+\geometry{top=30mm,bottom=30mm,left=40mm,right=30mm}
+
+% Cuenta el numero de pagina
+\usepackage{lastpage}
+
+% Insertar gráficos
+\usepackage{graphicx}
+
+% Colores
+\usepackage{xcolor}
+
+% Enlaces en el documento (índice y referencias)
+\usepackage{hyperref}
+
+% Enlaces en negro
+\hypersetup{
+    colorlinks = false,
+    linkbordercolor = {white}
+}
+
+% Numeración continua para ecuaciones, figuras y tablas 1, 2, 3, 4,... en vez de 1.1, 1.2, 2.1,...
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+
+% Paquetes para ayudar a escribir fórmulas matemáticas
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+
+% Paquete que provee \FloatBarrier que permite forzar el posicionamiento de una imagen o tabla
+\usepackage{placeins}
+
+% Paquete para formatear los títulos y secciones
+\usepackage{titlesec}
+\titleformat{\chapter}{\normalfont\large\centering\bfseries}{\MakeUppercase \chaptertitlename \space \Roman{chapter}: \space}{0pt}{\large\MakeUppercase}
+
+% Color codigo python
+\usepackage{python_col}
+
+% Idioma
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+
+
+
+\usepackage{lipsum}
+
+
+
+
+
+
+%%%%%%%%% Campos de la tesis %%%%%%%%%%%%%%
+%% Autor
+\newcommand{\autor}{Br. Fulano y Br. Mengano} % Fulano proviene del árabe "fulan" que significa: un tal. Mientras que Mengano viene del árabe "man kan" que significa: quien sea. 
+% Título de la tesis
+\newcommand{\tesis}{Diseño de una nave espacial para viajes interestelares}
+% Profesor
+\newcommand{\tutor}{Perencejo}
+% Universidad
+\newcommand{\universidad}{Universidad de Central de Venezuela}
+% Facultad
+\newcommand{\facultad}{Facultad de Ingeniería}
+% Escuela
+\newcommand{\escuela}{Escuela de Ingeniería Mecánica}
+% Ciudad
+\newcommand{\ciudad}{Caracas}
+% Titulo
+\newcommand{\titulo}{Ingeniero Mecánico}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Comienzo del documento %%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% Portada de la tesis titlepage.tex
+\include{titlepage}
+
+% Interlineado sencillo
+\spacing{1}
+
+% Número de pagina
+% Numeración romana minúscula (ShareLatex pone Versalitas, no se por qué)
+\pagenumbering{roman}
+% Comienza en 3 porque se incluye a tapa dura y la contraportada (incluido pero no impreso)
+\setcounter{page}{3}
+\setcounter{secnumdepth}{0}
+
+% Si hay algo que no aplique comentalo con %
+% Dedicatoria dedicatoria.tex
+\include{dedicatoria}
+
+% Agradecimientos agradecimientos.tex
+\include{agradecimientos}
+
+% Resumen resumen.tex
+\include{resumen}
+
+% Índice General
+\tableofcontents
+
+% Lista de Figuras
+\renewcommand{\listfigurename}{Lista de figuras}
+\listoffigures
+
+% Lista de tablas
+\renewcommand{\listtablename}{Lista de tablas}
+\renewcommand{\tablename}{Tabla}
+\listoftables
+
+%%%%%%%%%%  Cuerpo del trabajo %%%%%%%%%
+% Comienzan las referencias
+\begin{refsection}
+
+% Interlineado 1.5
+\spacing{1.5}
+
+% Numeración arábiga desde 1
+\clearpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+% Introducción introduccion.tex
+\include{introduccion}
+
+% Capítulo 1 capitulo1.tex
+\include{capitulo1}
+
+% Capítulo 2 capitulo2.tex
+\include{capitulo2}
+
+% Capítulo 3 capitulo3.tex
+\include{capitulo3}
+
+% Conclusiones conclusiones.tex
+\include{conclusiones}
+
+% Recomendaciones recomendaciones.tex
+\include{recomendaciones}
+
+% Referencias bibliograficas citadas biblio.bib
+% Se cita dentro del documento con \cite{Alias}
+\printbibliography[title=Referencias bibliográficas]
+\end{refsection}
+
+
+
+\nocite{*}
+\printbibliography[title=Bibliografías]
+
+\end{document}
