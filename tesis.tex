@@ -64,14 +64,6 @@
 \selectlanguage{spanish}
 
 
-
-\usepackage{lipsum}
-
-
-
-
-
-
 %%%%%%%%% Campos de la tesis %%%%%%%%%%%%%%
 %% Autor
 \newcommand{\autor}{Br. Fulano y Br. Mengano} % Fulano proviene del árabe "fulan" que significa: un tal. Mientras que Mengano viene del árabe "man kan" que significa: quien sea. 
@@ -129,8 +121,6 @@
 \listoftables
 
 %%%%%%%%%%  Cuerpo del trabajo %%%%%%%%%
-% Comienzan las referencias
-\begin{refsection}
 
 % Interlineado 1.5
 \spacing{1.5}
@@ -139,6 +129,9 @@
 \clearpage
 \setcounter{page}{1}
 \pagenumbering{arabic}
+
+% Comienzan las referencias
+\begin{refsection}
 
 % Introducción introduccion.tex
 \include{introduccion}
