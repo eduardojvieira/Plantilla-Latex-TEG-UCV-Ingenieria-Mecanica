@@ -10,8 +10,9 @@
 \addtokomafont{disposition}{\rmfamily}
 
 % Bibliografia biblio.bib
-\usepackage[backend=bibtex, citestyle=authoryear]{biblatex}
+\usepackage[backend=biber, citestyle=authoryear]{biblatex}
 \addbibresource{biblio.bib}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
 
 % Paquete para el interlineado
 \usepackage{setspace}
